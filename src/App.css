@@ -1,0 +1,155 @@
+/* App-specific styles */
+
+.app {
+  min-height: 100vh;
+}
+
+/* Hero Slide YouTube iframe specific styling */
+.hero-slide iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .hero-slide iframe {
+    height: 56.25vw;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .hero-slide iframe {
+    width: 177.78vh;
+  }
+}
+
+/* Navbar scrolled state */
+.navbar.scrolled {
+  background: rgba(10, 10, 15, 0.95);
+  padding: var(--spacing-sm) 0;
+}
+
+/* Enhanced showcase card hover */
+.showcase-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+      rgba(255, 107, 107, 0.1) 0%,
+      transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.showcase-card:hover::before {
+  opacity: 1;
+}
+
+/* About image gradient border effect */
+.about-image {
+  position: relative;
+}
+
+.about-image::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: var(--gradient-primary);
+  border-radius: calc(var(--radius-lg) + 3px);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* Contact section background pattern */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center,
+      rgba(255, 107, 107, 0.05) 0%,
+      transparent 50%);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+/* Social links with icons */
+.social-link {
+  font-size: 1.5rem;
+}
+
+/* Video modal backdrop blur */
+.video-modal {
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive video in modal */
+.video-modal-content iframe {
+  border-radius: var(--radius-md);
+}
+
+/* Loading animation for images */
+.showcase-thumbnail img {
+  background: var(--color-bg-tertiary);
+}
+
+/* Scroll indicator animation */
+@keyframes scrollBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* Focus styles for accessibility */
+.btn:focus,
+.navbar-link:focus,
+.slider-dot:focus,
+.showcase-card:focus {
+  outline: 2px solid var(--color-accent-1);
+  outline-offset: 3px;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(255, 107, 107, 0.3);
+  color: var(--color-text-primary);
+}
+
+/* Smooth scrolling for anchor links */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
