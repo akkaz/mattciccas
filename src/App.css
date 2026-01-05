@@ -85,9 +85,96 @@
   animation: pulse 8s ease-in-out infinite;
 }
 
-/* Social links with icons */
+/* Slider Navigation Arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: all var(--transition-base);
+  opacity: 0.7;
+}
+
+.slider-arrow:hover {
+  opacity: 1;
+  background: rgba(255, 107, 107, 0.3);
+  border-color: rgba(255, 107, 107, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow-prev {
+  left: 2rem;
+}
+
+.slider-arrow-next {
+  right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slider-arrow-prev {
+    left: 1rem;
+  }
+
+  .slider-arrow-next {
+    right: 1rem;
+  }
+}
+
+/* Social links with SVG icons */
 .social-link {
-  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  transition: all var(--transition-base);
+}
+
+.social-link svg {
+  width: 24px;
+  height: 24px;
+  transition: all var(--transition-base);
+}
+
+.social-link:hover svg {
+  transform: scale(1.2);
+}
+
+/* Specific colors for each social platform */
+.social-link:nth-child(1):hover svg {
+  fill: #E4405F;
+  /* Instagram */
+}
+
+.social-link:nth-child(2):hover svg {
+  fill: #FF0000;
+  /* YouTube */
+}
+
+.social-link:nth-child(3):hover svg {
+  fill: #0077B5;
+  /* LinkedIn */
+}
+
+.social-link:nth-child(4):hover svg {
+  fill: #1AB7EA;
+  /* Vimeo */
 }
 
 /* Video modal backdrop blur */
